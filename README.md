@@ -1,2 +1,1 @@
-# project-pizzeria
-Modul 7
+version 2.4
