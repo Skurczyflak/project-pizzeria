@@ -87,7 +87,7 @@ class Product{
       for(let optionId in param.options) {
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
         const option = param.options[optionId];
-        if(formData[paramId].includes(optionId)){
+        if(formData[paramId] && formData[paramId].includes(optionId)){
           // check if the option is checked
           if(!option.default){
             // option is not default for this category, add option price.
