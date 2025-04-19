@@ -11,6 +11,7 @@ class Product{
     thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
     thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
     thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+    thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
   }
   constructor(id, data){
     const thisProduct = this;
@@ -87,7 +88,22 @@ class Product{
       for(let optionId in param.options) {
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
         const option = param.options[optionId];
-        if(formData[paramId] && formData[paramId].includes(optionId)){
+        const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+        const imageSelector = '.'+paramId+'-'+optionId;
+        const optionImage = thisProduct.imageWrapper.querySelector(imageSelector);
+
+        if(optionSelected){
+          //check if the option is checked
+          if(optionImage){
+            optionImage.classList.add(classNames.menuProduct.imageVisible);
+          }
+        }else{
+          if(optionImage){
+            optionImage.classList.remove(classNames.menuProduct.imageVisible);
+          }
+        }
+
+        if(optionSelected){
           // check if the option is checked
           if(!option.default){
             // option is not default for this category, add option price.
