@@ -457,7 +457,16 @@ class Cart{
       body: JSON.stringify(payload),
     };
     
-    fetch(url, options);
+    fetch(url, options)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+
   }
 
 }
