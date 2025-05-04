@@ -154,6 +154,14 @@
       margin-bottom: ($base-size / 2);
     }
 
+    input:invalid{
+      border-color: $color-invalid;
+    }
+
+    input:valid {
+      border-color: $color-valid;
+    }
+
   }
 
 }
