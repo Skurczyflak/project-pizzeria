@@ -1,15 +1,18 @@
 
    export const select = {
         templateOf: {
-        menuProduct: "#template-menu-product",
-        cartProduct: '#template-cart-product', // CODE ADDED
-        bookingWidget: '#template-booking-widget',
+            menuProduct: "#template-menu-product",
+            cartProduct: '#template-cart-product', // CODE ADDED
+            bookingWidget: '#template-booking-widget',
+            homePage: '#template-home-page',
         },
         containerOf: {
             menu: '#product-list',
             cart: '#cart',
             pages: '#pages',
             booking: '.booking-wrapper',
+            home: '.home-wrapper',
+            homeLinks: '.home-page .options',
         },
         all: {
             menuProducts: '#product-list > .product',
@@ -141,4 +144,5 @@
       cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
       // CODE ADDED END
       bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),
+      homePage: Handlebars.compile(document.querySelector(select.templateOf.homePage).innerHTML),
     };

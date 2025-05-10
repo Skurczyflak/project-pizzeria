@@ -2,13 +2,14 @@
  import Product from './components/Product.js';
  import Cart from './components/Cart.js';
  import Booking from './components/Booking.js';
+ import Home from './components/Home.js';
  
  const app = {
     initPages: function(){
       const thisApp = this;
+      thisApp.homeLinks = document.querySelector(select.containerOf.homeLinks).children;
       thisApp.pages = document.querySelector(select.containerOf.pages).children;
       thisApp.navLinks = document.querySelectorAll(select.nav.links);
-
       const idFromHash = window.location.hash.replace('#/', '');
 
       let pageMatchingHash = thisApp.pages[0].id;
@@ -22,15 +23,23 @@
 
       thisApp.activatePage(pageMatchingHash);
 
-      for(let link of thisApp.navLinks){
-        link.addEventListener('click', function(event){
-          const clickedElement = this;
-          event.preventDefault();
-          const id = clickedElement.getAttribute('href').replace('#', '');
-          thisApp.activatePage(id);
-          window.location.hash = '#/' + id;
-        });
+      function handleLinkClick(event) {
+        const clickedElement = this;
+        event.preventDefault();
+        const id = clickedElement.getAttribute('href').replace('#', '');
+        thisApp.activatePage(id);
+        window.location.hash = '#/' + id;
       }
+      
+      for (let link of thisApp.navLinks) {
+        link.addEventListener('click', handleLinkClick);
+      }
+      
+      for (let link of thisApp.homeLinks) {
+        link.addEventListener('click', handleLinkClick);
+      }
+
+
     },
     activatePage: function(pageId){
       const thisApp = this;
@@ -86,12 +95,20 @@
       const bookingContainer = document.querySelector(select.containerOf.booking);
       thisApp.booking = new Booking(bookingContainer);
     },
+
+    initHome: function(){
+      const thisApp = this;
+      const homeContainer = document.querySelector(select.containerOf.home);
+      thisApp.home = new Home(homeContainer);
+    },
     init: function(){
       const thisApp = this;
       thisApp.initData();
       thisApp.initCart();
-      thisApp.initPages();
+      thisApp.initHome();
       thisApp.initBooking();
+      thisApp.initPages();
+
     },
   };
 
