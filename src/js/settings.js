@@ -44,6 +44,12 @@
             peopleAmount: '.people-amount',
             hoursAmount: '.hours-amount',
             tables: '.floor-plan .table',
+            phone: '.order-confirmation input[name="phone"]',
+            address: '.order-confirmation input[name="address"]',
+            starters: '.booking-options input[name="starter"]',
+            ppl: '.people-amount .amount',
+            duration: '.hours-amount .amount',
+            form: '.booking-form',
         },
         nav: {
             links: '.main-nav a',
@@ -85,6 +91,7 @@
         booking: {
             loading: 'loading',
             tableBooked: 'booked',
+            tableSelected: 'selected',
         },
         nav: {
             active: 'active',

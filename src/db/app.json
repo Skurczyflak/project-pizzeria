@@ -18,7 +18,7 @@
       "repeat": "daily",
       "duration": 2,
       "ppl": 3,
-      "starters": ["bread", "lemonWater"]
+      "starters": ["bread", "Water"]
    },
    {
       "id": 3,
@@ -28,7 +28,7 @@
       "repeat": "daily",
       "duration": 2,
       "ppl": 3,
-      "starters": ["bread", "lemonWater"]
+      "starters": ["bread", "Water"]
    },
    {
       "id": 4,
@@ -48,7 +48,7 @@
       "repeat": "daily",
       "duration": 2,
       "ppl": 3,
-      "starters": ["lemonWater"]
+      "starters": ["Water"]
    }
    ],
    "bookings": [
@@ -60,7 +60,17 @@
          "duration": 3,
          "ppl": 4,
          "starters": ["bread"]
+      },
+      {
+         "id": 2,
+         "date": "2025-05-10",
+         "hour": "20:00",
+         "table": 1,
+         "duration": 3,
+         "ppl": 4,
+         "starters": ["bread"]
       }
+
 
    ],
 
