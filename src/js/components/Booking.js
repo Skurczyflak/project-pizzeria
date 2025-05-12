@@ -199,8 +199,7 @@ class Booking{
           }
           thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
           thisBooking.updateDOM();
-          thisBooking.unSelectTables();
-          console.log("XD");
+          thisBooking.unselectTables();
           return response.json();
         })
         .catch(error => {
@@ -211,7 +210,7 @@ class Booking{
       
     }
 
-    unSelectTables(){
+    unselectTables(){
       const thisBooking = this;
       for (let selectedTable of thisBooking.dom.tables) {
         selectedTable.classList.remove(classNames.booking.tableSelected);
@@ -263,7 +262,7 @@ class Booking{
             if (table.classList.contains(classNames.booking.tableSelected)) {
               table.classList.remove(classNames.booking.tableSelected);
             } else if (!table.classList.contains(classNames.booking.tableBooked)) {
-              thisBooking.unSelectTables();
+              thisBooking.unselectTables();
               table.classList.add(classNames.booking.tableSelected);
               thisBooking.tableSelected = parseInt(table.getAttribute(settings.booking.tableIdAttribute));
             }
